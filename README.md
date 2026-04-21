@@ -88,14 +88,18 @@ Please include a brief answer to this question in your submission email.
 
 ---
 
-## 🤖 Bonus (Optional) — AI-Assisted Development
+## 🤖 Bonus — AI-Assisted Development: Showcase Your Method
 
-> This task is completely optional and does not affect the base evaluation of the exercise.
+> This assessment can be completed using traditional methods, however, we consider the ability to collaborate with Artificial Intelligence a strategic asset. 
 
-Try to solve one or more of the previous tasks using an agentic AI assistant, such as:
+We encourage the use of agentic AI assistants such as:
 - [Claude Code](https://claude.ai/code)
 - [Gemini CLI](https://github.com/google-gemini/gemini-cli)
 - Other similar tools (Copilot Workspace, Cursor, etc.)
+
+not to replace your critical thinking, but to amplify your impact. We are interested in evaluating how you leverage these tools to optimize workflows while consistently safeguarding the quality and robustness of the final output.
+
+The goal of this bonus is not to achieve a "perfect" result from the tool, but rather to demonstrate your ability to govern the process: how you prompt the AI, how you identify and correct its errors, and how you integrate its work into our architecture.
 
 ### 📁 What to Submit
 
