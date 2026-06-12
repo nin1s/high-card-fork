@@ -9,7 +9,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AddUserRequest extends GenericRequest {
+public class UpdateUserRequest extends GenericRequest {
+
+    @NotBlank(message = "GUID is required")
+    private String guid;
 
     @NotBlank(message = "First name is required")
     private String firstName;

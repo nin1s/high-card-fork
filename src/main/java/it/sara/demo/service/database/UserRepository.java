@@ -1,25 +1,23 @@
 package it.sara.demo.service.database;
 
 import it.sara.demo.service.database.model.User;
-import org.springframework.stereotype.Component;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
-@Component
-public class UserRepository {
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    public boolean save(User user) {
-        user.setGuid(java.util.UUID.randomUUID().toString());
-        FakeDatabase.TABLE_USER.add(user);
-        return true;
-    }
+    Optional<User> findByGuid(String guid);
 
-    public Optional<User> getByGuid(String guid) {
-        return FakeDatabase.TABLE_USER.stream().filter(u -> u.getGuid().equals(guid)).findFirst();
-    }
-
-    public List<User> getAll() {
-        return FakeDatabase.TABLE_USER;
-    }
+    @Query("SELECT u FROM User u WHERE " +
+           "LOWER(u.firstName) LIKE LOWER(CONCAT('%', :search, '%')) OR " +
+           "LOWER(u.lastName) LIKE LOWER(CONCAT('%', :search, '%')) OR " +
+           "LOWER(u.email) LIKE LOWER(CONCAT('%', :search, '%'))")
+    Page<User> searchUsers(@Param("search") String search, Pageable pageable);
 }
